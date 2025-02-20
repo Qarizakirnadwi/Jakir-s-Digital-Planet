@@ -35,28 +35,35 @@
 </div>
 
     <script>
+  // 🎭 JavaScript Se Parda Hatana
+setTimeout(() => {
+    document.querySelector('.curtain-container').classList.add('reveal');
+}, 1500); // 1.5s Delay ke baad Animation Start
+
 document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
         document.body.classList.add("reveal"); 
-    }, 2000); // 2 sec baad hero section aayega
-
-    // Cube ko Curtain Hatne Ke Baad Show Karna
-    setTimeout(() => {
-        document.querySelector('.scene').style.display = "block"; // Show Cube
-        startAutoRotation(); // Start rotation
-    }, 3000); // Curtain animation + hero section ke baad
-
-    // Button ko Show Karna
-    setTimeout(() => {
-        document.getElementById("enterButton").classList.add("show-button");
-    }, 3500); 
+    }, 2000); // 2 sec baad hero section aayega (curtain animation time ke baad)
 });
 
-// Cube Auto Rotation
+// ✅ Curtain Animation Ke Baad Enter Button & Cube Show
+setTimeout(() => {
+    document.getElementById("enterButton").classList.add("show-button");
+    document.querySelector('.scene').style.opacity = "1";  // Cube Dikhana
+}, 3000);  // Curtain Animation Ke Baad
+
+// ✅ Enter Website Function (Main Page Pe Le Jane Ke Liye)
+function enterWebsite() {
+    console.log("Button clicked! Redirecting...");
+    window.location.href = "main.html"; // Apna Main Page Link Dal Do
+}
+
+// ✅ Cube Rotation & Touch Events
 const cube = document.querySelector('.cube');
 let rotating = true;
 let startX = 0, startY = 0;
 let currentX = 0, currentY = 0;
+let autoRotateInterval;
 
 function startAutoRotation() {
     if (!rotating) return;
@@ -86,16 +93,18 @@ function handleTouchMove(event) {
 
 function handleTouchEnd() {
     rotating = true;
-    setTimeout(startAutoRotation, 2000);
+    setTimeout(startAutoRotation, 2000); // Restart auto-rotation after 2s
 }
 
-// Event Listeners
+// ✅ Event Listeners (Touch & Click Pe Kaam Karega)
 cube.addEventListener('touchstart', handleTouchStart, { passive: true });
 cube.addEventListener('touchmove', handleTouchMove, { passive: false });
 cube.addEventListener('touchend', handleTouchEnd, { passive: true });
 
-// Pehle Cube Hide Karo
-document.querySelector('.scene').style.display = "none";  
+// ✅ Curtain Animation Ke Baad Cube Ka Auto-Rotation Start
+setTimeout(() => {
+    startAutoRotation();
+}, 3000);
 
     </script>
 </body>
