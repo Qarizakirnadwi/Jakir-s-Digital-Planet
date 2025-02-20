@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Jakir Hussain - Web Developer, Educator, and Entrepreneur. Expert in Full Stack Development, Arabic, English Teaching, and Qirat.">
+    <meta name="keywords"
+        content="Jakir Hussain, Full Stack Developer, Web Development, Arabic Teacher, English Teacher, QuantaX">
+    <title>Jakir's Digital World</title>
+    <link rel="stylesheet" href="front.css">
+</head>
+<body>
+    <div class="curtain-container">
+        <div class="rod"></div>  <!-- Upar Lathi -->
+        <div class="curtain left-curtain"></div>   <!-- Left Parda -->
+        <div class="curtain right-curtain"></div>  <!-- Right Parda -->
+        <div class="hero-section">
+            <h1>Jakir's Digital World</h1>
+            <p>Jakir Hussain – The Digital Architect</p>
+        </div>
+    </div>
+    <!-- Enter Website Button -->
+<button class="enter-button" id="enterButton" onclick="enterWebsite()">Step Into Jakir's Universe</button>
+<!-- cube -->
+<div class="scene">
+    <div class="cube">
+        <div class="face front"><img src="Amrapali pic.jpg" alt="Image 1"></div>
+        <div class="face back"><img src="me 1.jpeg" alt="Image 2"></div>
+        <div class="face right"><img src="qari zakir.jpeg" alt="Image 3"></div>
+        <div class="face left"><img src="me3.jpeg" alt="Image 4"></div>
+        <div class="face top"><img src="me aligonj2.jpeg" alt="Image 5"></div>
+        <div class="face bottom"><img src="me4.jpeg" alt="Image 6"></div>
+    </div>
+</div>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+        document.body.classList.add("reveal"); 
+    }, 2000); // 2 sec baad hero section aayega
+
+    // Cube ko Curtain Hatne Ke Baad Show Karna
+    setTimeout(() => {
+        document.querySelector('.scene').style.display = "block"; // Show Cube
+        startAutoRotation(); // Start rotation
+    }, 3000); // Curtain animation + hero section ke baad
+
+    // Button ko Show Karna
+    setTimeout(() => {
+        document.getElementById("enterButton").classList.add("show-button");
+    }, 3500); 
+});
+
+// Cube Auto Rotation
+const cube = document.querySelector('.cube');
+let rotating = true;
+let startX = 0, startY = 0;
+let currentX = 0, currentY = 0;
+
+function startAutoRotation() {
+    if (!rotating) return;
+    cube.style.animation = 'autoRotate 12s infinite linear';
+}
+
+function stopRotation() {
+    rotating = false;
+    cube.style.animation = 'none';
+}
+
+function handleTouchStart(event) {
+    stopRotation();
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
+}
+
+function handleTouchMove(event) {
+    let moveX = event.touches[0].clientX - startX;
+    let moveY = event.touches[0].clientY - startY;
+    currentX += moveX * 0.3;
+    currentY += moveY * 0.3;
+    cube.style.transform = `rotateX(${currentY}deg) rotateY(${currentX}deg)`;
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
+}
+
+function handleTouchEnd() {
+    rotating = true;
+    setTimeout(startAutoRotation, 2000);
+}
+
+// Event Listeners
+cube.addEventListener('touchstart', handleTouchStart, { passive: true });
+cube.addEventListener('touchmove', handleTouchMove, { passive: false });
+cube.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+// Pehle Cube Hide Karo
+document.querySelector('.scene').style.display = "none";  
+
+    </script>
+</body>
+</html>

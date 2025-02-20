@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.curtain-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #111; /* Dark BG for Dramatic Look */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.rod {
+width: 100%;
+height: 15px;
+background: linear-gradient(to bottom, #8B4513, #654321);
+position: absolute;
+top: 1%;
+left: 50%;
+transform: translateX(-50%);
+border-radius: 10px;
+box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+/* Rod ke dono ends pe design */
+.rod::before, .rod::after {
+content: "";
+width: 25px;  /* End cap size */
+height: 25px;
+background: radial-gradient(circle, #7a5230, #4a2c14); /* Wooden or metallic look */
+border-radius: 50%; /* Circular design */
+box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.2),
+            inset -2px -2px 5px rgba(0, 0, 0, 0.5); /* 3D effect */
+}
+
+/* Left side end */
+.rod::before {
+margin-left: 10px;
+}
+
+/* Right side end */
+.rod::after {
+margin-right: 10px;
+}
+/* 🎭 2 Parda */
+.curtain {
+    position: absolute;
+    top: 0;
+    width: 50vw;
+    height: 100vh;
+    /* background: linear-gradient(to bottom, #9b2226, #8d191d); */
+    background-image: url('curtain1.webp');
+    transition: transform 2s ease-in-out;
+}
+
+@keyframes openCurtains {
+0% { transform: translateX(0); }     /* Start Position */
+80% { transform: translateX(-48vw); } /* Fast Move */
+100% { transform: translateX(-45vw); } /* Slow Stop (Left Curtain) */
+}
+
+@keyframes openCurtainsRight {
+0% { transform: translateX(0); } 
+80% { transform: translateX(48vw); } 
+100% { transform: translateX(45vw); } /* Slow Stop (Right Curtain) */
+}
+
+/* Common Styles */
+.curtain {
+position: absolute;
+width: 50vw;
+height: 100vh;
+top: 0;
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+/* Left Curtain */
+.left-curtain {
+left: 0;
+background: url('curtain1.webp') center;
+animation: openCurtains 3s ease-out forwards;
+}
+
+/* Right Curtain */
+.right-curtain {
+right: 0;
+background: url('curtain1.webp') center;
+animation: openCurtainsRight 3s ease-out forwards;
+}
+
+
+/* ✨ Hero Section (Hidden by Default) */
+.hero-section {
+    position: absolute;
+    top: 20%;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(200px);
+    transform: scale(-2);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* 🎭 Animation Effect */
+.reveal .left-curtain {
+    transform: translateX(-100%);
+}
+.reveal .right-curtain {
+    transform: translateX(100%);
+}
+.reveal .hero-section {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+@media (max-width: 768px) {
+/* 🎭 Parda width zyada karein taaki achha dikhe */
+.curtain {
+    width: 60vw;
+}
+
+/* 🎭 Hero Section ko chhota aur readable banayein */
+.hero-section {
+    font-size: 18px;
+    padding: 10px;
+    position: absolute;
+    top: 15%;
+    
+}
+
+/* 🎭 Animation ko thoda fast kar dein */
+.reveal .left-curtain {
+    transform: translateX(-110%);
+}
+.reveal .right-curtain {
+    transform: translateX(110%);
+}
+}
+/* Button Styling */
+.enter-button {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 35px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #ff0080, #0111f0, #ffed00);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    opacity: 0;  /* Pehle hidden rahega */
+    transition: opacity 1s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(255, 140, 0, 0.6);
+}
+
+.enter-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0px 8px 20px rgba(255, 140, 0, 0.9);
+}
+
+
+/* Curtain Animation ke baad Show hoga */
+.show-button {
+opacity: 1;
+}
+@media (max-width: 768px) {
+.enter-button {
+    font-size: 16px;  /* Chhota size mobile ke liye */
+    padding: 10px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+}
+}
+
+.scene {
+    display: none;
+    width: 180px; /* Mobile-friendly size */
+    height: 180px;
+    perspective: 1000px; /* Depth effect */
+    margin: 20px auto;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+}
+
+.cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: autoRotate 12s infinite linear;
+    will-change: transform;
+}
+
+.face {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px; /* Thoda smooth look */
+}
+
+/* Cube Faces Positioning */
+.front  { transform: rotateY(  0deg) translateZ(90px); }
+.back   { transform: rotateY(180deg) translateZ(90px); }
+.right  { transform: rotateY( 90deg) translateZ(90px); }
+.left   { transform: rotateY(-90deg) translateZ(90px); }
+.top    { transform: rotateX( 90deg) translateZ(90px); }
+.bottom { transform: rotateX(-90deg) translateZ(90px); }
+
+/* Smooth Auto Rotation */
+
+@keyframes autoRotate {
+    0%, 100%  { transform: rotateX(0deg) rotateY(0deg); }
+    16.66%    { transform: rotateX(0deg) rotateY(90deg); }
+    33.33%    { transform: rotateX(0deg) rotateY(180deg); }
+    50%       { transform: rotateX(0deg) rotateY(270deg); }
+    66.66%    { transform: rotateX(90deg) rotateY(0deg); }
+    83.33%    { transform: rotateX(-90deg) rotateY(0deg); }
+}

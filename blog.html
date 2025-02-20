@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I Built My Portfolio</title>
+    <style>
+        * {
+    margin: 10;
+    padding: 10;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6; /* Increases line height for better readability */
+}
+h1 {
+    font-size: 2.5rem; /* Increased font size for the main title */
+    margin-bottom: 20px; /* Adds spacing below the title */
+    text-align: center; /* Centers the main title */
+}
+h2 {
+    font-size: 2rem; /* Increased font size for section titles */
+    margin: 20px 0 10px; /* Adds spacing above and below section titles */
+}
+p {
+    font-size: 1.1rem; /* Increased font size for paragraph text */
+    margin-bottom: 15px; /* Adds spacing below paragraphs */
+    text-wrap: wrap;
+}
+ul, ol {
+    margin-left: 20px; /* Adds left margin for lists */
+    margin-bottom: 15px; /* Adds spacing below lists */
+}
+footer {
+    text-align: center; /* Centers footer text */
+    margin-top: 30px; /* Adds spacing above footer */
+    font-size: 0.9rem; /* Smaller font size for footer */
+}
+
+    </style>
+</head>
+<body>
+    <!-- Blog Post Content -->
+    <section id="blog-post">
+        <h1>How I Built My Portfolio Website</h1>
+        <p>Building a portfolio website is a crucial step for any developer or creative professional. It showcases your skills, projects, and achievements in a visually appealing and accessible way. When I started building my portfolio, I wanted it to reflect my journey, highlight my accomplishments, and create an online space where potential clients or employers could easily connect with me. Here's how I went about creating my personal portfolio.</p>
+        
+        <h2>Step 1: Planning the Structure</h2>
+        <p>Before jumping into coding, I spent some time planning the structure of my portfolio. I knew that my portfolio had to include sections like:</p>
+        <ul>
+            <li>Home: A brief introduction and an overview of my skills.</li>
+            <li>About Me: Detailing my educational background, work experience, and interests.</li>
+            <li>Blog: A space to share my learning experiences and tutorials.</li>
+            <li>Certificates: Highlighting my certifications and accomplishments.</li>
+            <li>YouTube Channel: Embedding videos from my channel for easy viewing.</li>
+            <li>Contact: A simple and effective way for visitors to get in touch with me.</li>
+            <li>Footer: Actually I already created a footer section for every project created by me.</li>
+        </ul>
+        <p>The key to planning was making sure each section served a clear purpose and was easy to navigate. I sketched out the layout and planned how users would move through the site, from the homepage to other sections.</p>
+        
+        <h2>Step 2: Setting Up the Repository on GitHub</h2>
+        <p>I chose to host my portfolio on <strong>GitHub Pages</strong>. GitHub Pages provides free hosting for static websites, making it the perfect platform to deploy my portfolio. Here’s what I did:</p>
+        <ol>
+            <li>Created a new repository on GitHub, named after my portfolio.</li>
+            <li>Cloned the repository locally using Git, allowing me to start coding directly on my machine.</li>
+            <li>Once I had all my files ready, I pushed them to GitHub, which automatically deployed my website.</li>
+        </ol>
+        <p><strong>GitHub Pages</strong> also helps in maintaining version control, which is crucial as I keep improving and updating my website.</p>
+        
+        <h2>Step 3: Building the Layout with HTML and CSS</h2>
+        <p>With the structure planned and GitHub set up, I dove into coding the front end. I used <strong>HTML5</strong> for the structure and <strong>CSS3</strong> to style the pages. Here are the key elements:</p>
+        <ul>
+            <li><strong>Responsive Navigation Bar</strong>: I created a navbar that looks great on both desktop and mobile screens. I made sure the navbar was clean, simple, and easy to use.</li>
+            <li><strong>Home Section</strong>: I added a brief introduction about myself along with links to my social media profiles and portfolio projects.</li>
+            <li><strong>Certificates Section</strong>: I used a grid layout to showcase my certificates in a neat and organized manner. Each certificate is clickable and opens up in a larger view.</li>
+        </ul>
+        <p>To ensure that my website was <strong>responsive</strong>, I used <strong>media queries</strong> in CSS to adjust the layout for different screen sizes.</p>
+        
+        <h2>Step 4: Adding JavaScript for Interactivity</h2>
+        <p>To make my website more interactive, I incorporated <strong>JavaScript</strong>. One of the main features was the <strong>smooth scrolling</strong> functionality, which I achieved by using this simple CSS rule:</p>
+        <pre><code>html {
+    scroll-behavior: smooth;
+}</code></pre>
+        <p>This allowed users to navigate between sections smoothly when they clicked on links in the navbar. I also used JavaScript to handle the navigation toggling for mobile views, ensuring a better user experience on smaller screens.</p>
+        
+        <h2>Step 5: Embedding YouTube Videos</h2>
+        <p>I wanted to showcase my YouTube channel directly on my portfolio. For this, I created a dedicated <strong>YouTube section</strong>, where I embedded a few videos using YouTube's iframe embed code:</p>
+        <pre><code>&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/qSSuTN2ZfKU" frameborder="0" allow="accelerometer; autoplay; <br> clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
+        <p>Visitors can now watch my videos directly on my portfolio without needing to leave the site.</p>
+        
+        <h2>Step 6: Customizing the Blog Section</h2>
+        <p>I included a <strong>Blog section</strong> to share my thoughts on web development, JavaScript, and other topics I’m passionate about. Each blog post has a summary with a "Read More" link, directing users to the full post. This allows me to keep sharing valuable content and showcase my learning journey.</p>
+        
+        <h2>Step 7: Testing and Making It Responsive</h2>
+        <p>Before deploying my site, I thoroughly tested it across various devices and browsers. I wanted to ensure that it looked great on desktops, tablets, and smartphones. I used <strong>Chrome DevTools</strong> for live previews and made adjustments where necessary.</p>
+        <p>Using <strong>flexbox</strong> and <strong>media queries</strong>, I ensured that all elements on the page resized and rearranged themselves for optimal readability on any device.</p>
+        
+        <h2>Step 8: Deploying on GitHub Pages</h2>
+        <p>Once everything was in place, I committed my changes to GitHub and enabled GitHub Pages from the repository settings. Within a few seconds, my portfolio was live!</p>
+        <p>Whenever I make changes, all I have to do is push my updated code to GitHub, and the live version of my portfolio is updated automatically.</p>
+        
+        <h2>Final Thoughts</h2>
+        <p>Building my portfolio was a rewarding experience. It not only allowed me to showcase my skills but also pushed me to learn new technologies and best practices. I plan to keep updating my portfolio with new blog posts, videos, and projects as I grow in my career.</p>
+        
+        <h2>What’s Next?</h2>
+        <p>I plan to continue writing blogs, creating videos, and refining my portfolio. Stay tuned for updates on my journey!</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Qari Zakir Hussain Nadwi</p>
+    </footer>
+</body>
+</html>
