@@ -35,7 +35,7 @@
 </div>
 
     <script>
-  // 🎭 JavaScript Se Parda Hatana
+// 🎭 JavaScript Se Parda Hatana
 setTimeout(() => {
     document.querySelector('.curtain-container').classList.add('reveal');
 }, 1500); // 1.5s Delay ke baad Animation Start
@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
 setTimeout(() => {
     document.getElementById("enterButton").classList.add("show-button");
     document.querySelector('.scene').style.opacity = "1";  // Cube Dikhana
+    document.querySelector('.scene').style.display = "flex";  // Cube Visible Karna
 }, 3000);  // Curtain Animation Ke Baad
 
 // ✅ Enter Website Function (Main Page Pe Le Jane Ke Liye)
@@ -105,6 +106,7 @@ cube.addEventListener('touchend', handleTouchEnd, { passive: true });
 setTimeout(() => {
     startAutoRotation();
 }, 3000);
+
 
     </script>
 </body>
