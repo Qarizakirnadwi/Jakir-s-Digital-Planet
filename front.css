@@ -188,7 +188,7 @@ opacity: 1;
 }
 
 .scene {
-    display: none;
+    
     width: 180px; /* Mobile-friendly size */
     height: 180px;
     perspective: 1000px; /* Depth effect */
@@ -196,6 +196,8 @@ opacity: 1;
     position: absolute;
     top: 50%;
     left: 30%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
 .cube {
